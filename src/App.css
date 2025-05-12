@@ -120,3 +120,15 @@ a {
   width: 450px;
   margin: 0 auto;
 }
+
+.logout-button {
+  background-color: none !important;
+  color: rgba(255, 255, 255, 0.65) !important;
+  padding: 5px 10px !important;
+  border-radius: 5px !important;
+}
+
+.logout-button:hover {
+  color: #fff !important;
+  background-color: none !important;
+}

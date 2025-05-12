@@ -5,15 +5,23 @@ import {
   CommentOutlined,
   BookOutlined,
   DashboardOutlined,
+  LogoutOutlined,
 } from "@ant-design/icons";
 
-import { Link, Outlet, useLocation } from "react-router-dom";
+import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
+import { useAppDispatch } from "../hooks/hooks";
+import { outAdmin } from "../redux/slices/adminSlice";
 
 const { Header, Content, Sider } = Layout;
 
 const AdminDashboardMain: React.FC = () => {
   const location = useLocation();
-
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    dispatch(outAdmin());
+    navigate("/");
+  }
   return (
     <Layout style={{ minHeight: "100vh" }}>
       <Sider
@@ -41,6 +49,9 @@ const AdminDashboardMain: React.FC = () => {
           </Menu.Item>
           <Menu.Item key="/admin/slot-management" icon={<CommentOutlined />}>
             <Link to="/admin/slot-management">Отзывы</Link>
+          </Menu.Item>
+          <Menu.Item onClick={() => handleLogout()} key="/admin/logout" icon={<LogoutOutlined />}>
+            <p className="logout-button">Выйти</p>
           </Menu.Item>
         </Menu>
       </Sider>

@@ -9,15 +9,10 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const dispatch = useAppDispatch();
 
-  // const isAdmin = user?.role === "admin";
   useEffect(() => {
-    // dispatch(getRecords())
-    // dispatch(getService())
-    // dispatch(getDoctors())
     dispatch(getReviews())
     dispatch(getRooms())
     dispatch(getBookings())
-
   }, [])
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -57,26 +52,12 @@ const Navbar = () => {
         >
           Связаться с нами
         </Link>
-        {/* {!isAuthenticated ? ( */}
         <Link
           to="/login"
           className="hover:text-green-500 active:text-purple-500 font-medium"
         >
           Админ
         </Link>
-        {/* ) : (
-          <>
-            {isAdmin && (
-              <Link
-                to="/admin"
-                className="hover:text-green-500 active:text-purple-500 font-medium"
-              >
-                Админ
-              </Link>
-            )
-            }
-          </>
-        )} */}
       </div>
       <div className="md:hidden">
         <button
@@ -103,35 +84,35 @@ const Navbar = () => {
         <div className="md:hidden absolute top-16 right-0 bg-white shadow-md z-50">
           <div className="flex flex-col items-center space-y-4 p-4">
             <Link to="/" className="hover:text-green-500" onClick={toggleMenu}>
-              Home
+              Главная
             </Link>
             <Link
               to="/meeting-rooms"
               className="hover:text-green-500"
               onClick={toggleMenu}
             >
-              Meeting Rooms
+              Конференц-залы
             </Link>
             <Link
               to="/about-us"
               className="hover:text-green-500"
               onClick={toggleMenu}
             >
-              About Us
+              О нас
             </Link>
             <Link
               to="/contact-us"
               className="hover:text-green-500"
               onClick={toggleMenu}
             >
-              Contact Us
+              Связаться с нами
             </Link>
             <Link
               to="/login"
               className="hover:text-green-500"
               onClick={toggleMenu}
             >
-              Login/Register
+              Админ
             </Link>
           </div>
         </div>
