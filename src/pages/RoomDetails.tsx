@@ -72,7 +72,7 @@ const RoomDetails = () => {
                 <strong>Вместимость:</strong> {room?.capacity} человек
               </p>
               <p className="text-gray-600 mb-4">
-                <strong>Цена за час:</strong> ${room?.price} сом
+                <strong>Цена за час:</strong> {room?.price} сом
               </p>
               <div className="mb-4">
                 <h3 className="text-xl font-semibold mb-2">Оборудование:</h3>
